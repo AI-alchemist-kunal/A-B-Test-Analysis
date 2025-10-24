@@ -13,7 +13,7 @@ My task is to run an A/B test, analyze the results, and provide a clear "ship / 
 ## 3. Analysis & Results
 I ran a test on 10,000 users, split randomly between the two versions. The analysis was performed using a Chi-Squared test for independence.
 
-*(Note: The data for this analysis was synthetically generated for portfolio purposes. The full analysis notebook can be found at `analysis.ipynb`.)*
+*(Note: The data for this analysis was synthetically generated for portfolio purposes.)*
 
 ### Key Results:
 * **Control (Blue Button):** Converted at **10.12%**
