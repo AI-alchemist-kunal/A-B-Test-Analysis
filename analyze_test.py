@@ -3,7 +3,7 @@ from scipy.stats import chi2_contingency
 
 def analyze_ab_test(data_path="ab_test_data.csv", alpha=0.05):
     """Loads A/B test data, performs Chi-Squared test, and prints results."""
-    print(f"Analyzing data from {data_path}...")
+    print(f"Analyzing data from {data_path}..")
     try:
         df = pd.read_csv(data_path)
     except FileNotFoundError:
@@ -12,9 +12,9 @@ def analyze_ab_test(data_path="ab_test_data.csv", alpha=0.05):
 
     # Create contingency table
     contingency_table = pd.crosstab(df['group'], df['converted'])
-    print("\n--- Contingency Table ---")
+    print("\n-- Contingency Table --")
     print(contingency_table)
-
+    
     # Calculate observed conversion rates
     control_total = contingency_table.loc['control'].sum()
     treatment_total = contingency_table.loc['treatment'].sum()
@@ -24,6 +24,7 @@ def analyze_ab_test(data_path="ab_test_data.csv", alpha=0.05):
     control_cr = control_converted / control_total
     treatment_cr = treatment_converted / treatment_total
 
+    print("------")
     print(f"\nControl Conversion Rate: {control_cr:.4f} ({control_cr * 100:.2f}%)")
     print(f"Treatment Conversion Rate: {treatment_cr:.4f} ({treatment_cr * 100:.2f}%)")
     print(f"Observed Difference: {treatment_cr - control_cr:.4f} ({ (treatment_cr - control_cr) * 100:.2f}%)")
